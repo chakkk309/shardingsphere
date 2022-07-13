@@ -918,6 +918,8 @@ public final class OracleDDLStatementSQLVisitor extends OracleStatementSQLVisito
     
     @Override
     public ASTNode visitAlterIndexType(final AlterIndexTypeContext ctx) {
+        OracleAlterIndexTypeStatement result = new OracleAlterIndexTypeStatement();
+        result.setIndexType((IndexTypeSegment) visit(ctx.indexTypeName()));
         return new OracleAlterIndexTypeStatement();
     }
 }
